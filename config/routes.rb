@@ -1,5 +1,5 @@
 YandexTranslate::Application.routes.draw do
-  post "yandex_translate/index"
+  get "yandex_translate/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
