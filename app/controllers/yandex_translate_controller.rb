@@ -1,15 +1,10 @@
-#require 'yandex-translate'
-
 class YandexTranslateController < ApplicationController
   def index
   	@text_in = params[:text_in]
-  	@history = History.create(before_translate: @text_in, after_translate: self.translator.translate(@text_in)["text"][0])
+  	@text_out = self.translator.translate(@text_in)["text"][0]
+  	@history = History.create(before_translate: @text_in, after_translate: @text_out)
   	@histories = History.all
-
-  	@text_out = self.translator.translate(params[:text_in])["text"][0]
-  	#render text: @histories.map{ |i| "bf: #{i.before_translate} af:#{i.after_translate}"}.join("<br/>")
   end
-
 
 protected
 

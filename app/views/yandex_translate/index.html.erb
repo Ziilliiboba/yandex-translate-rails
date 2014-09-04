@@ -9,14 +9,15 @@
 <p>
 	<%= label_tag(:text_out, "Translated text:") %>
 	<%= text_field_tag(:text_out, @text_out) %>
+	<h3>History:</h3>
 </p>
+	<%= @histories.find_each do |history| %>
+		<%= label_tag(history.before_translate) %>
+		<br/>
+		<%= label_tag(history.after_translate) %>
+		<br/><br/>
+	<% end %>
 <% end %>
 
-<%= @histories.each do |history| %>
-	<%= label_tag(history.before_translate) %>
-	<br/>
-	<%= label_tag(history.after_translate) %>
-	<br/><br/>
-<% end %>
 
 
