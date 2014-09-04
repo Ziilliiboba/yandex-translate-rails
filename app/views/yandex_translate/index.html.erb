@@ -1,6 +1,6 @@
 <h1>Translator (use Yandex API)</h1>
 
-<%= form_tag("index", method: "get") do %>
+<%= form_tag(translate_path, method: "post") do %>
 <p>
 	<%= label_tag(:text_in, "Translate for:") %>
 	<%= text_field_tag(:text_in, @text_in) %>
@@ -11,4 +11,12 @@
 	<%= text_field_tag(:text_out, @text_out) %>
 </p>
 <% end %>
+
+<%= @histories.each do |history| %>
+	<%= label_tag(history.before_translate) %>
+	<br/>
+	<%= label_tag(history.after_translate) %>
+	<br/><br/>
+<% end %>
+
 
