@@ -5,7 +5,6 @@ class YandexTranslateController < ApplicationController
   	@text_out = self.translator.translate(@text_in)["text"][0]
   	@history = History.create(before_translate: @text_in, after_translate: @text_out, user_id: User.where(name: @login).pluck(:id)[0])
   	@histories = History.all
-  	#render text: User.where(name: @login).pluck(:id)[0]
   end
 
 protected

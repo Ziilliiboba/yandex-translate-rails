@@ -2,8 +2,7 @@
 
 <%= form_tag(translate_path, method: "post") do %>
 <p>
-	<%= label_tag(:login, @login) %>
-	<%= label_tag(User.where(name: @login).pluck(:id)[0]) %>
+	<%= text_field_tag(:login, @login) %>
 </p>
 <p>
 	<%= label_tag(:text_in, "Translate for:") %>
@@ -17,7 +16,6 @@
 </p>
 	<%= @histories.find_each do |history| %>
 		<%= label_tag(User.where(id: history.user_id).pluck(:name)[0]) %>
-		<%= label_tag(history.user_id) %>
 		<br/>
 		<%= label_tag(history.before_translate) %>
 		<br/>
