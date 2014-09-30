@@ -1,0 +1,29 @@
+<h1>Registration</h1>
+
+<%= form_tag(registration_path, method: "post") do %>
+	<p>
+		<%= label_tag("Login:") %>
+		<%= text_field_tag(:login, @login) %>
+	</p>
+	<p>
+		<%= label_tag("EMail:") %>
+		<%= text_field_tag(:mail, @mail) %>
+	</p>
+	<p>
+		<%= label_tag("Password:") %>
+		<%= text_field_tag(:password, @password) %>
+	</p>
+	<p>
+		<%= label_tag("Verify your password:") %>
+		<%= text_field_tag(:password_verify, @password_verify) %>
+	</p>
+	<p>
+		<%= submit_tag("Registration") %>
+	</p>
+	<p>
+		<%= label_tag(@error_message) %>
+	</p>
+<% end %>
+<%= form_tag(log_in_path, method: "post") do %>
+	<%= submit_tag("Log in") %>
+<% end %>
