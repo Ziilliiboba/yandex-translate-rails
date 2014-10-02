@@ -44,5 +44,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'yandex-translate'
-gem "authlogic"
+#gem "authlogic"
+
+gem 'authlogic', '~> 3.4.1'
+gem 'bcrypt', '~> 3.1.7'
+gem 'scrypt', '1.2.1'
 #gem 'protected_attributes'

@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-	validates :name, :mail, :password, presence: true
+  acts_as_authentic do |c|
+    c.login_field = :login
+  end
 end
