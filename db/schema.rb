@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929151527) do
+ActiveRecord::Schema.define(version: 20141002065040) do
 
   create_table "histories", force: true do |t|
     t.text     "before_translate"
@@ -21,12 +21,21 @@ ActiveRecord::Schema.define(version: 20140929151527) do
     t.integer  "user_id"
   end
 
+  create_table "user_sessions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "mail"
-    t.string   "password"
+    t.string   "crypted_password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_salt",       default: "1", null: false
+    t.string   "persistence_token",   default: "1", null: false
+    t.string   "single_access_token", default: "1", null: false
+    t.string   "perishable_token",    default: "1", null: false
   end
 
 end
