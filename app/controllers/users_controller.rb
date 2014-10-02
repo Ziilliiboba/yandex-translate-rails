@@ -4,10 +4,11 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:user])
+    puts params[:user]
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Account registered!"
-      redirect_back_or_default account_url
+      redirect_to :back
     else
       render :action => :new
     end
@@ -29,5 +30,9 @@ class UsersController < ApplicationController
     else
       render :action => :edit
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:login, :password, :password_confirmation)
   end
 end
