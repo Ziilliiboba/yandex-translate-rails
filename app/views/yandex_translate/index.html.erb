@@ -12,6 +12,8 @@
 <p>
 	<%= label_tag(:text_out, "Translated text:") %>
 	<%= text_field_tag(:text_out, @text_out) %>
+	<br />
+	<%= link_to "Edit Profile", edit_user_path(:current) %>
 	<h3>History:</h3>
 </p>
 	<%= @user.histories.find_each do |history| %>
