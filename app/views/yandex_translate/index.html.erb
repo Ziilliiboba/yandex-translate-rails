@@ -1,8 +1,8 @@
 <h1>Translator (use Yandex API)</h1>
 
-<%= form_tag(translate_path, method: "post") do %>
+<%= form_tag(translator_path, method: "post") do %>
 <p>
-	<%= text_field_tag(:login, @login) %>
+	<%= text_field_tag(:login, @user.login) %>
 </p>
 <p>
 	<%= label_tag(:text_in, "Translate for:") %>
@@ -14,8 +14,8 @@
 	<%= text_field_tag(:text_out, @text_out) %>
 	<h3>History:</h3>
 </p>
-	<%= @histories.find_each do |history| %>
-		<%= label_tag(User.where(id: history.user_id).pluck(:name)[0]) %>
+	<%= @user.histories.find_each do |history| %>
+		<%= label_tag(@user.login) %>
 		<br/>
 		<%= label_tag(history.before_translate) %>
 		<br/>
